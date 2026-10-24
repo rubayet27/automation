@@ -9,7 +9,7 @@
             "args": [
                 "-NoProfile",
                 "-Command",
-                "$script = Join-Path $env:TEMP 'create_module.py'; Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/rubayet27/automation/refs/heads/main/file_gen.py' -OutFile $script; python $script '${input:moduleName}'"
+                "$script = Join-Path $env:TEMP 'create_module.py'; Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/rubayet27/automation/refs/heads/main/python_file_gen.py' -OutFile $script; python $script '${input:moduleName}'"
             ],
             "options": {
                 "cwd": "${workspaceFolder}"
